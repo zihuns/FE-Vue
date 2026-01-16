@@ -1,0 +1,40 @@
+{
+  "name": "vue3-movie-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve:webpack": "vue-cli-service serve",
+    "serve": "netlify dev",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^1.2.4",
+    "bootstrap": "^5.2.3",
+    "core-js": "^3.8.3",
+    "lodash": "^4.17.21",
+    "node-sass": "^8.0.0",
+    "sass-loader": "^13.2.0",
+    "vue": "^3.2.13",
+    "vue-loader": "^17.0.1",
+    "vue-router": "^4.1.6",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "babel-eslint": "^10.1.0",
+    "dotenv-webpack": "^8.0.1",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "netlify-cli": "^12.10.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}
