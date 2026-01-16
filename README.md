@@ -1,102 +1,51 @@
-# Vue3 템플릿 with Webpack
+# Vue 3 Test Project
 
-## Versions
+이 프로젝트는 Webpack을 사용하여 수동으로 구성된 Vue 3 애플리케이션입니다. Vue 3의 기본적인 컴포넌트 시스템, 반응형 데이터, 그리고 Webpack 설정 방법을 확인하기 위한 예제 프로젝트입니다.
 
-- [Default](https://github.com/ParkYoungWoong/vue3-webpack-template/tree/master)<br>
-- [+ESLint](https://github.com/ParkYoungWoong/vue3-webpack-template/tree/eslint)<br>
-- [+ESLint+Vuex](https://github.com/ParkYoungWoong/vue3-webpack-template/tree/vuex)<br>
-- [+ESLint+Vuex+VueRouter](https://github.com/ParkYoungWoong/vue3-webpack-template/tree/vue-router)<br>
+![App Screenshot](src/assets/app.png)
 
-## Installation
+## 🛠 기술 스택 (Tech Stack)
+
+- **Framework**: Vue 3
+- **Bundler**: Webpack 5
+- **Styling**: SCSS (Sass)
+- **Transpiler**: Babel
+
+## 📂 프로젝트 구조 (Project Structure)
+
+- **`src/App.vue`**: 메인 애플리케이션 컴포넌트입니다. 카운터 로직과 과일 목록 렌더링을 포함하고 있습니다.
+- **`src/components/Fruit.vue`**: 개별 과일 항목을 표시하는 자식 컴포넌트입니다. `props`를 통해 데이터를 전달받습니다.
+- **`webpack.config.js`**: Vue 로더, SCSS 처리, Babel 변환, 개발 서버 설정 등 프로젝트 번들링을 위한 설정 파일입니다.
+
+## ✨ 주요 기능 (Features)
+
+1. **카운터 (Counter)**
+
+   - 숫자를 클릭하면 카운트가 1씩 증가합니다.
+   - 카운트가 4보다 커지면 "4보다 큽니다!"라는 메시지가 조건부 렌더링(`v-if`)으로 표시됩니다.
+
+2. **목록 렌더링 (List Rendering)**
+   - `App.vue`의 데이터(`Apple`, `Banana`, `Cherry`)를 기반으로 `Fruit` 컴포넌트를 반복 렌더링합니다.
+   - 부모 컴포넌트에서 자식 컴포넌트로 데이터를 전달하는 `props` 활용 예시가 포함되어 있습니다.
+
+## 🚀 실행 방법 (Getting Started)
+
+### 의존성 설치
 
 ```bash
-# Default.
-$ npx degit ParkYoungWoong/vue3-webpack-template DIRECTORY_NAME
-
-# With ESLint, Add `#eslint`.
-$ npx degit ParkYoungWoong/vue3-webpack-template#eslint DIRECTORY_NAME
-
-# With ESLint + Vuex, Add `#vuex`.
-$ npx degit ParkYoungWoong/vue3-webpack-template#vuex DIRECTORY_NAME
-
-# With ESLint + Vuex + VueRouter, Add `#vue-router`.
-$ npx degit ParkYoungWoong/vue3-webpack-template#vue-router DIRECTORY_NAME
-
-# Start!
-$ cd DIRECTORY_NAME
-$ npm i
-$ npm run dev
+npm install
 ```
 
-## Specs
+### 개발 서버 실행
 
-- Vue3
-- Webpack
-- SCSS
-- Babel
-- PostCSS
-- Autoprefixer
-- ESLint __(+ESLint)__
-- Vuex __(+Vuex)__
-- Vue Router __(+VueRouter)__
+Webpack Dev Server를 통해 로컬 환경(`localhost:8080`)에서 프로젝트를 실행합니다.
 
-## Packages
+```bash
+npm run dev
+```
 
-__webpack__: 모듈(패키지) 번들러의 핵심 패키지<br>
-__webpack-cli__: 터미널에서 Webpack 명령(CLI)을 사용할 수 있음<br>
-__webpack-dev-server__: 개발용으로 Live Server를 실행(HMR)<br>
+### 프로덕션 빌드
 
-__html-webpack-plugin__: 최초 실행될 HTML 파일(템플릿)을 연결<br>
-__copy-webpack-plugin__: 정적 파일(파비콘, 이미지 등)을 제품(`dist`) 폴더로 복사<br>
-
-__sass-loader__: SCSS(Sass) 파일을 로드<br>
-__postcss-loader__: PostCSS(Autoprefixer)로 스타일 파일을 처리<br>
-__css-loader__: CSS 파일을 로드<br>
-__style-loader__: 로드된 스타일(CSS)을 `<style>`로 `<head>`에 삽입<br>
-__babel-loader__: JS 파일을 로드<br>
-__vue-loader__: Vue 파일을 로드<br>
-__vue-style-loader__: Vue 파일의 로드된 스타일(CSS)을 `<style>`로 `<head>`에 삽입<br>
-__file-loader__: 지정된 파일(이미지)을 로드<br>
-
-__@babel/core__: ES6 이상의 코드를 ES5 이하 버전으로 변환<br>
-__@babel/preset-env__: Babel 지원 스펙을 지정<br>
-__@babel/plugin-transform-runtime__: Async/Await 문법 지원<br>
-
-__sass__: SCSS(Sass) 문법을 해석(스타일 전처리기)<br>
-__postcss__: Autoprefixer 등의 다양한 스타일 후처리기 패키지<br>
-__autoprefixer__: 스타일에 자동으로 공급 업체 접두사(Vendor prefix)를 적용하는 PostCSS의 플러그인<br>
-
-__vue__: Vue.js 프레임워크<br>
-__@vue/compiler-sfc__: .vue 파일(SFC, 3버전)을 해석<br>
-
-__eslint__: 정적 코드 분석 도구 __(+ESLint)__<br>
-__eslint-plugin-vue__: Vue.js 코드 분석 __(+ESLint)__<br>
-__babel-eslint__: ES6 이상의 코드(Babel)를 분석 __(+ESLint)__<br>
-
-__vuex__: 중앙 집중식 저장소 __(+Vuex)__<br>
-__vue-router__: 라우터 __(+VueRouter)__<br>
-
-## 주의사항!
-
-- `npm i vue@next`로 설치(3버전)
-- `npm i vue-loader@next`로 설치(3버전)
-- `npm i -D webpack-dev-server@next`로 설치(webpack-cli 버전(@4^)과 일치)!<br>
-- `package.json` 옵션으로 `browserslist` 추가!<br>
-- `.postcssrc.js` 생성(PostCSS 구성 옵션)!<br>
-- `.babelrc.js` 생성(Babel 구성 옵션)!<br>
-- `.eslintrc.js` 생성(ESLint 구성 옵션)! __(+ESLint)__<br>
-
-## ESLint Auto fix on save for VSCode
-
-- 모든 명령 표시(Windows: `Ctrl`+`Shift`+`P` / macOS: `Cmd`+`Shift`+`P`)
-- 모든 명령 표시에서 `settings` 검색
-- `Preferences: Open Settings (JSON)` 선택
-- 오픈된 `settings.json`파일에서 아래 코드 추가 및 저장
-
-```json
-{
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
-}
+```bash
+npm run build
 ```
